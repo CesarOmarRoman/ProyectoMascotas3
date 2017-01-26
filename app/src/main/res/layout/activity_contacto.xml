@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_bio"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.maccesarr.proyectomascotas.ContactoActivity">
+
+    <include
+        android:id="@+id/miActionBar_DETALLE"
+        layout="@layout/action_bar_detalle">
+    </include>
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/miActionBar_DETALLE"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textStyle="bold"
+            android:textSize="25dp"/>
+        >
+
+        <EditText
+            android:id="@+id/editTextNombre_Contacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:inputType="text"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Correo"
+            android:textStyle="bold"
+            android:textSize="25dp"/>
+        >
+
+        <EditText
+           android:id="@+id/editTextEmail_Contacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:inputType="textEmailAddress"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mensaje"
+            android:textStyle="bold"
+            android:textSize="25dp"/>
+        >
+
+        <EditText
+            android:id="@+id/editTextMensaje_Contacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:inputType="text"/>
+
+        <Button
+            android:id="@+id/ButtonEnviarInformación_Contacto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Enviar Información"
+            android:onClick="EnviarInformación"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
