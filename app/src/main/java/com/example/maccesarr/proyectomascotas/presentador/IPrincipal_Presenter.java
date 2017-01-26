@@ -16,5 +16,5 @@ public interface IPrincipal_Presenter {
 
     public void agregarMascotasBaseDeDatos(BaseDatos db);
 
-    public void limpiarTablas(Context context);
+    public void limpiarTablas();
 }

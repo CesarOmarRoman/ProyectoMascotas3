@@ -26,17 +26,22 @@ public class Principal_Presenter implements IPrincipal_Presenter {
     public Principal_Presenter(IPrincipalFragment_View iPrincipalFragment_view, Context context) {
         this.iPrincipalFragment_view = iPrincipalFragment_view;
         this.context = context;
+
         obtenerMascotasBaseDeDatos();
+
+        //limpiarTablas();
     }
 
     public Principal_Presenter(Context context) {
-        limpiarTablas(context);
+        //limpiarTablas();
     }
 
     @Override
     public void obtenerMascotasBaseDeDatos() {
         constructorDeMascotas = new ConstructorDeMascotas(context);
         mascotas = constructorDeMascotas.obtenerDatos();
+
+
         mostrarMascotasBaseDeDatos();
     }
 
@@ -46,7 +51,7 @@ public class Principal_Presenter implements IPrincipal_Presenter {
         iPrincipalFragment_view.generarLayoutVertical();
     }
 
-    public void limpiarTablas(Context context){
+    public void limpiarTablas(){
         constructorDeMascotas = new ConstructorDeMascotas();
         mascotas = constructorDeMascotas.eliminarDatos(context);
         mostrarMascotasBaseDeDatos();

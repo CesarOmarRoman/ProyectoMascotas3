@@ -19,5 +19,4 @@ public interface IPrincipalFragment_View {
 
     public void inicializarAdaptador(AdaptadorMascotas adaptadorMascotas);
 
-    public void limpiarBaseDatos();
 }

@@ -25,6 +25,12 @@ public class BaseDatos extends SQLiteOpenHelper {
         this.context = context;
     }
 
+    public void limpiarBaseDatos() {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(ConstantesBaseDatos.TABLE_MASCOTAS, null, null);
+        db.delete(ConstantesBaseDatos.TABLE_LIKES_MASCOTA, null, null);
+        db.close();
+    }
 
 
     @Override
@@ -100,7 +106,7 @@ public class BaseDatos extends SQLiteOpenHelper {
     }
 
     public void LimpiarTabla(){
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = getWritableDatabase();
         db.execSQL("delete from "+ ConstantesBaseDatos.TABLE_LIKES_MASCOTA);
         db.execSQL("delete from "+ ConstantesBaseDatos.TABLE_MASCOTAS);
         db.close();

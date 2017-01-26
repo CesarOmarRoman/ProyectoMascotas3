@@ -30,6 +30,8 @@ public class ConstructorDeMascotas {
 
     public ArrayList<Mascota> obtenerDatos(){
         BaseDatos baseDatos = new BaseDatos(context);
+       // Principal_Presenter principal_presenter = new Principal_Presenter(context);
+      //  principal_presenter.agregarMascotasBaseDeDatos(baseDatos);
         return  baseDatos.obtenerTodosLosContactos();
     }
 

@@ -41,10 +41,6 @@ public class PrincipalFragment extends Fragment implements IPrincipalFragment_Vi
         return v;
     }
 
-    @Override
-    public void limpiarBaseDatos(){
-        Principal_Presenter principal_presenter = new Principal_Presenter(this.getContext());
-    }
 
     @Override
     public void generarLayoutVertical() {

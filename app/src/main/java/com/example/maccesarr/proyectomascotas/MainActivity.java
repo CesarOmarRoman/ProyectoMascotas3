@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     SharedPreferences.Editor editor;
     SharedPreferences preferencias;
+    Context contextNew;
     Context context;
     Activity activity;
 
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        contextNew = this;
 
         //Agregar para dar soporte al botón de opciones
         toolbar =(Toolbar)findViewById(R.id.Toolbar);
@@ -56,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
         preferencias=getSharedPreferences("SICAM", Context.MODE_PRIVATE);
         editor =preferencias.edit();
+
+
     }
 
 
@@ -113,19 +118,20 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public ArrayList<Mascota> Agregar_Imagen(View view){
-        IPrincipal_Presenter principal_presenter = new Principal_Presenter(context);
-        BaseDatos baseDatos = new BaseDatos(context);
+    public  void Agregar_Imagen(View view){
+        BaseDatos baseDatos = new BaseDatos(contextNew);
+        IPrincipal_Presenter principal_presenter = new Principal_Presenter(contextNew);
         principal_presenter.agregarMascotasBaseDeDatos(baseDatos);
-        return  baseDatos.obtenerTodosLosContactos();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+
     }
 
     public void Reiniciar(){
         Toast.makeText(this,"Se reiniciar los parametros", Toast.LENGTH_LONG).show();
-        PrincipalFragment principalFragment = new PrincipalFragment();
-        principalFragment.limpiarBaseDatos();
-
-
+        BaseDatos baseDatos = new BaseDatos(contextNew);
+        baseDatos.limpiarBaseDatos();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
